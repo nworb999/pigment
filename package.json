@@ -21,5 +21,6 @@
   "homepage": "https://github.com/nworb9/pigment#readme",
   "dependencies": {
     "express": "^4.18.2"
-  }
+  },
+  "type": "module"
 }
