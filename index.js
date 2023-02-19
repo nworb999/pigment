@@ -1,4 +1,5 @@
 import express from "express";
+import bodyParser from "body-parser";
 import { fileURLToPath } from "url";
 import path, { dirname } from "path";
 
@@ -10,6 +11,8 @@ const port = 3000;
 
 // serve css as static
 app.use(express.static(__dirname));
+// use body-parser
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/hello", (req, res) => {
   res.send("Howdy world!");
@@ -20,7 +23,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  res.send("Thanks for visiting");
+  const color = req.body.pigColor;
+  res.send(color);
 });
 
 app.listen(port, () => {
