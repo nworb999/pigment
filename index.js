@@ -8,6 +8,9 @@ const __dirname = dirname(__filename);
 const app = express();
 const port = 3000;
 
+// serve css as static
+app.use(express.static(__dirname));
+
 app.get("/hello", (req, res) => {
   res.send("Howdy world!");
 });
