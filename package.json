@@ -1,0 +1,25 @@
+{
+  "name": "pigment",
+  "version": "1.0.0",
+  "description": "an Express.js app serving pigs of many colors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nworb9/pigment.git"
+  },
+  "keywords": [
+    "pig"
+  ],
+  "author": "nworb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nworb9/pigment/issues"
+  },
+  "homepage": "https://github.com/nworb9/pigment#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
