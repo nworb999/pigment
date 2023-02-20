@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import { fileURLToPath } from "url";
 import path, { dirname } from "path";
-import { servePigment } from "./src/utils.js";
+import { createPigment } from "./src/utils.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  const svg = servePigment(req.body.pigColor);
+  const svg = createPigment(req.body.pigColor);
   res.set("Content-Type", "text/html");
   res.send(svg);
 });

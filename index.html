@@ -3,11 +3,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/app.css" />
+    <script>
+      window.onload = function () {
+        var audio = document.getElementById("myAudio");
+        console.log(audio);
+        document.addEventListener("click", function (event) {
+          var target = event.target;
+          var audioTrigger = target.classList.contains("audio-trigger");
+
+          if (audioTrigger) {
+            audio.play();
+          }
+        });
+      };
+    </script>
   </head>
-  <body>
+  <body class="audio-trigger">
+    <audio id="myAudio" loop>
+      <source src="/public/grunt.wav" type="audio/wav" />
+      your browser does not support the audio element :(
+    </audio>
+
     <h1 style="color: salmon">welcome to pigment</h1>
 
-    <form method="POST" id="colorForm">
+    <form method="POST" id="colorForm" class="audio-trigger">
       <label for="colorInput">choose your color</label>
       <input
         type="text"
@@ -15,8 +34,9 @@
         placeholder="pink"
         id="colorInput"
         required
+        class="audio-trigger"
       />
     </form>
-    <button type="submit" form="colorForm">submit</button>
+    <button type="submit" form="colorForm" class="audio-trigger">submit</button>
   </body>
 </html>
