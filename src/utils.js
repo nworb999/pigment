@@ -43,7 +43,7 @@ export const createPigment = (input) => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/public/favicon.png" type="image/png" />
     </head>
-    <body class="audio-trigger">
+    <body className="audio-trigger">
     <script>
     window.onload = function () {
       var audio = document.getElementById("myAudio");
@@ -73,7 +73,7 @@ export const createPigment = (input) => {
       your browser does not support the audio element :(
     </audio>
 
-    <h1 style="color: salmon">click on the barn ↓</h1>
+    <h1>click on the barn ↓</h1>
 
     ${pig}
     <button onclick="swapSVG()">

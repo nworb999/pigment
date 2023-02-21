@@ -1,32 +1,43 @@
 import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
+import next from "next";
 import { createPigment } from "./src/utils.js";
 
 const rootDir = path.resolve(process.cwd());
 
-const app = express();
-const port = 3000;
+const dev = process.env.NODE_ENV !== "production";
+const app = next({ dev });
+const handle = app.getRequestHandler();
 
-// serve css as static
-app.use(express.static(rootDir));
-// use body-parser
-app.use(bodyParser.urlencoded({ extended: true }));
+app.prepare().then(() => {
+  const server = express();
+  const port = 3000;
 
-app.get("/hello", (req, res) => {
-  res.send("Howdy world!");
-});
+  // serve css as static
+  server.use(express.static(rootDir));
+  // use body-parser
+  server.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.resolve(rootDir, "index.html"));
-});
+  server.get("*", (req, res) => {
+    return handle(req, res);
+  });
 
-app.post("/", (req, res) => {
-  const svg = createPigment(req.body.pigColor);
-  res.set("Content-Type", "text/html");
-  res.send(svg);
-});
+  server.get("/hello", (req, res) => {
+    res.send("Howdy world!");
+  });
 
-app.listen(port, () => {
-  console.log(`Pigments listening on port ${port}`);
+  server.get("/", (req, res) => {
+    res.sendFile(path.resolve(rootDir, "index.html"));
+  });
+
+  server.post("/", (req, res) => {
+    const svg = createPigment(req.body.pigColor);
+    res.set("Content-Type", "text/html");
+    res.send(svg);
+  });
+
+  server.listen(port, () => {
+    console.log(`Pigments listening on port ${port}`);
+  });
 });
