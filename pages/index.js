@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Script from "next/script";
 import Head from "next/head";
+import Form from "../components/Form";
 
 const Index = () => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
+
   return (
     mounted && (
       <>
         <Head>
           <title>pigment</title>
-          <link rel="icon" href="/public/favicon.png" type="image/png" />
-          <link rel="stylesheet" href="/styles/globals.css" />
+          <link rel="icon" href="../public/favicon.png" type="image/png" />
         </Head>
 
         <Script src="/src/triggerAudio.js" strategy="lazyOnload"></Script>
@@ -23,21 +24,7 @@ const Index = () => {
         </audio>
 
         <h1>welcome to pigment</h1>
-
-        <form method="POST" id="colorForm" className="audio-trigger">
-          <label htmlFor="colorInput">choose your color</label>
-          <input
-            type="text"
-            name="pigColor"
-            placeholder="pink"
-            id="colorInput"
-            required
-            className="audio-trigger"
-          />
-        </form>
-        <button type="submit" form="colorForm" className="audio-trigger">
-          submit
-        </button>
+        <Form />
       </>
     )
   );
