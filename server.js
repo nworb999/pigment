@@ -1,11 +1,12 @@
 import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
-import { createPigment } from "./utils.js";
+import { createPigment } from "./src/utils.js";
 
 const rootDir = path.resolve(process.cwd());
 
-export const app = express();
+const app = express();
+const port = 3000;
 
 // serve css as static
 app.use(express.static(rootDir));
@@ -26,4 +27,6 @@ app.post("/", (req, res) => {
   res.send(svg);
 });
 
-export default app;
+app.listen(port, () => {
+  console.log(`Pigments listening on port ${port}`);
+});
