@@ -1,1 +1,0 @@
-self.__BUILD_MANIFEST={__rewrites:{beforeFiles:[],afterFiles:[],fallback:[]},"/":["static/chunks/pages/index-134816f61642f201.js"],"/_error":["static/chunks/pages/_error-54de1933a164a1ff.js"],"/barnYard":["static/chunks/pages/barnYard-aba0352ddd5d97b9.js"],sortedPages:["/","/_app","/_error","/barnYard"]},self.__BUILD_MANIFEST_CB&&self.__BUILD_MANIFEST_CB();
