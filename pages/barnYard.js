@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
-import Script from "next/script";
 import { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
 import Color from "color";
 import AudioTrigger from "../components/audioTrigger";
 
