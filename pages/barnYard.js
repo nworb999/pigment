@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import Color from "color";
-import AudioTrigger from "../components/audioTrigger";
+import AudioTrigger from "../components/AudioTrigger";
 
 const validateCSSColor = (color) => {
   try {
